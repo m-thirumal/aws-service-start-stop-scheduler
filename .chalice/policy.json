@@ -13,8 +13,8 @@
     {
       "Effect": "Allow",
       "Action": [
-        "ec2:Start*",
-        "ec2:Stop*"
+        "rds:Start*",
+        "rds:Stop*"
       ],
       "Resource": "*"
     }
