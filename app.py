@@ -1,6 +1,7 @@
 import os
-
+import pymsteams
 import boto3
+
 from chalice import Chalice, Cron
 
 app = Chalice(app_name='aws-service-start-stop-scheduler')
@@ -13,6 +14,7 @@ def stop_lambda_handler(event):
     print("Stopping cluster")
     response = rds.stop_db_cluster(DBClusterIdentifier=os.environ.get("DBClusterIdentifier"))
     print('Stopped your cluster: ' + str(response))
+    send_notification_to_ms_teams("Stop cluster response {}".format(response))
 
 
 # Run at 08:00am (UTC) every Monday through Friday.
@@ -21,4 +23,11 @@ def start_lambda_handler(event):
     print("Starting cluster")
     response = rds.start_db_cluster(DBClusterIdentifier=os.environ.get("DBClusterIdentifier"))
     print('Started your cluster: ' + str(response))
+    send_notification_to_ms_teams("Start cluster response {}".format(response))
 
+
+def send_notification_to_ms_teams(message):
+    print("Sending message {} to MS Teams".format(message))
+    ms_teams_message = pymsteams.connectorcard(os.environ.get('msTeamChannelIncomingWebhook'))
+    ms_teams_message.text(message)
+    ms_teams_message.send()
