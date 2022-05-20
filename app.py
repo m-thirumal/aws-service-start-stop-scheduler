@@ -8,8 +8,8 @@ app = Chalice(app_name='aws-service-start-stop-scheduler')
 rds = boto3.client('rds')
 
 
-# Run at 07:00pm (UTC) every Monday through Friday.
-@app.schedule(Cron(0, 19, '?', '*', 'MON-FRI', '*'))
+# Run at 1:30pm (UTC) (i.e 07:00pm [IST]) every Monday through Friday.
+@app.schedule(Cron(30, 13, '?', '*', 'MON-FRI', '*'))
 def stop_lambda_handler(event):
     print("Stopping cluster")
     response = rds.stop_db_cluster(DBClusterIdentifier=os.environ.get("DBClusterIdentifier"))
@@ -17,8 +17,8 @@ def stop_lambda_handler(event):
     send_notification_to_ms_teams("Stop cluster response {}".format(response))
 
 
-# Run at 08:00am (UTC) every Monday through Friday.
-@app.schedule(Cron(0, 8, '?', '*', 'MON-FRI', '*'))
+# Run at 02:30am(UTC) [i.e.08:00am (IST)] every Monday through Friday.
+@app.schedule(Cron(30, 2, '?', '*', 'MON-FRI', '*'))
 def start_lambda_handler(event):
     print("Starting cluster")
     response = rds.start_db_cluster(DBClusterIdentifier=os.environ.get("DBClusterIdentifier"))
