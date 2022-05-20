@@ -1,4 +1,8 @@
 # Start / Stop AWS services by scheduler
+
+This lambda helps to start / stop AWS services such as AWS Neptune... by `CRON` scheduler 
+
+
 Building the project
 =================
 
