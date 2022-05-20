@@ -1,22 +1,6 @@
 {
   "resources": [
     {
-      "name": "stop_lambda_handler_role",
-      "resource_type": "iam_role",
-      "role_arn": "arn:aws:iam::597991982472:role/aws-service-start-stop-scheduler-prod-stop_lambda_handler",
-      "role_name": "aws-service-start-stop-scheduler-prod-stop_lambda_handler"
-    },
-    {
-      "name": "stop_lambda_handler",
-      "resource_type": "lambda_function",
-      "lambda_arn": "arn:aws:lambda:ap-south-1:597991982472:function:aws-service-start-stop-scheduler-prod-stop_lambda_handler"
-    },
-    {
-      "name": "stop_lambda_handler-event",
-      "resource_type": "cloudwatch_event",
-      "rule_name": "aws-service-start-stop-scheduler-prod-stop_lambda_handler-event"
-    },
-    {
       "name": "start_lambda_handler_role",
       "resource_type": "iam_role",
       "role_arn": "arn:aws:iam::597991982472:role/aws-service-start-stop-scheduler-prod-start_lambda_handler",
@@ -31,6 +15,22 @@
       "name": "start_lambda_handler-event",
       "resource_type": "cloudwatch_event",
       "rule_name": "aws-service-start-stop-scheduler-prod-start_lambda_handler-event"
+    },
+    {
+      "name": "stop_lambda_handler_role",
+      "resource_type": "iam_role",
+      "role_arn": "arn:aws:iam::597991982472:role/aws-service-start-stop-scheduler-prod-stop_lambda_handler",
+      "role_name": "aws-service-start-stop-scheduler-prod-stop_lambda_handler"
+    },
+    {
+      "name": "stop_lambda_handler",
+      "resource_type": "lambda_function",
+      "lambda_arn": "arn:aws:lambda:ap-south-1:597991982472:function:aws-service-start-stop-scheduler-prod-stop_lambda_handler"
+    },
+    {
+      "name": "stop_lambda_handler-event",
+      "resource_type": "cloudwatch_event",
+      "rule_name": "aws-service-start-stop-scheduler-prod-stop_lambda_handler-event"
     }
   ],
   "schema_version": "2.0",
