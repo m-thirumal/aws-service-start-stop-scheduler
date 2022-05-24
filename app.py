@@ -9,8 +9,8 @@ rds = boto3.client('rds')
 
 
 # -----------------------START SERVICE-------------------------------#
-# Run at 02:30am(UTC) [i.e.08:00am (IST)] every Monday through Friday.
-@app.schedule(Cron(30, 2, '?', '*', 'MON-FRI', '*'))
+# Run at 03:00am(UTC) [i.e.08:30am (IST)] every Monday through Friday.
+@app.schedule(Cron(00, 3, '?', '*', 'MON-FRI', '*'))
 def start_lambda_handler(event):
     print("Starting cluster")
     response = rds.start_db_cluster(DBClusterIdentifier=os.environ.get("DBClusterIdentifier"))
@@ -20,8 +20,8 @@ def start_lambda_handler(event):
 
 
 # -----------------------STOP SERVICE-------------------------------#
-# Run at 1:30pm (UTC) (i.e 07:00pm [IST]) every Monday through Friday.
-@app.schedule(Cron(30, 13, '?', '*', 'MON-FRI', '*'))
+# Run at 1:15pm (UTC) (i.e 06:45pm [IST]) every Monday through Friday.
+@app.schedule(Cron(15, 13, '?', '*', 'MON-FRI', '*'))
 def stop_lambda_handler(event):
     print("Stopping cluster")
     response = rds.stop_db_cluster(DBClusterIdentifier=os.environ.get("DBClusterIdentifier"))
