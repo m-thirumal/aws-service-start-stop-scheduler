@@ -46,6 +46,7 @@ def stop_lambda_handler(event):
 
 # Sending notification to Microsoft Team
 def send_notification_to_ms_teams(message):
+    message += "<----->\n Posted using repo  -----> https://github.com/m-thirumal/aws-service-start-stop-scheduler"
     print("Sending message {} to MS Teams".format(message))
     ms_teams_message = pymsteams.connectorcard(os.environ.get('msTeamChannelIncomingWebhook'))
     ms_teams_message.text(message)
