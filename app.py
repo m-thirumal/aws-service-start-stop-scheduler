@@ -1,6 +1,10 @@
+import logging
 import os
+
+import botocore
 import pymsteams
 import boto3
+from botocore.exceptions import ClientError
 
 from chalice import Chalice, Cron
 
@@ -13,7 +17,12 @@ rds = boto3.client('rds')
 @app.schedule(Cron(00, 3, '?', '*', 'MON-FRI', '*'))
 def start_lambda_handler(event):
     print("Starting cluster")
-    response = rds.start_db_cluster(DBClusterIdentifier=os.environ.get("DBClusterIdentifier"))
+    try:
+        response = rds.start_db_cluster(DBClusterIdentifier=os.environ.get("DBClusterIdentifier"))
+    except Exception as ex:
+        err = "Exception occurred on starting neptune due to {}".format(ex)
+        print(err)
+        send_notification_to_ms_teams(err)
     print('Started your cluster: ' + str(response))
     # Sending notification to Microsoft Team
     send_notification_to_ms_teams("Start cluster response {}".format(response))
@@ -24,7 +33,12 @@ def start_lambda_handler(event):
 @app.schedule(Cron(15, 13, '?', '*', 'MON-FRI', '*'))
 def stop_lambda_handler(event):
     print("Stopping cluster")
-    response = rds.stop_db_cluster(DBClusterIdentifier=os.environ.get("DBClusterIdentifier"))
+    try:
+        response = rds.stop_db_cluster(DBClusterIdentifier=os.environ.get("DBClusterIdentifier"))
+    except Exception as ex:
+        err = "Exception occurred on stopping neptune due to {}".format(ex)
+        print(err)
+        send_notification_to_ms_teams(err)
     print('Stopped your cluster: ' + str(response))
     # Sending notification to Microsoft Team
     send_notification_to_ms_teams("Stop cluster response {}".format(response))
