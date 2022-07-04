@@ -1,10 +1,6 @@
-import logging
 import os
-
-import botocore
 import pymsteams
 import boto3
-from botocore.exceptions import ClientError
 
 from chalice import Chalice, Cron
 
@@ -29,8 +25,8 @@ def start_lambda_handler(event):
 
 
 # -----------------------STOP SERVICE-------------------------------#
-# Run at 1:15pm (UTC) (i.e 06:45pm [IST]) every Monday through Friday.
-@app.schedule(Cron(15, 13, '?', '*', 'MON-FRI', '*'))
+# Run at 1:30pm (UTC) (i.e 07:00pm [IST]) every Monday through Friday.
+@app.schedule(Cron(30, 13, '?', '*', 'MON-FRI', '*'))
 def stop_lambda_handler(event):
     print("Stopping cluster")
     try:
