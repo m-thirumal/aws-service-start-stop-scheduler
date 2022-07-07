@@ -4,7 +4,7 @@
   "source": "aws.events",
   "account": "123456789012",
   "time": "1970-01-01T00:00:00Z",
-  "region": "us-east-1",
+  "region": "ap-south-1",
   "resources": [
     "arn:aws:events:us-east-1:123456789012:rule/ExampleRule"
   ],
