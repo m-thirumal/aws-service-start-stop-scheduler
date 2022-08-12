@@ -27,7 +27,6 @@ def start_lambda_handler(event):
 # -----------------------STOP SERVICE-------------------------------#
 # Run at 1:30pm (UTC) (i.e 07:00pm [IST]) every Monday through Friday.
 @app.schedule(Cron(30, 13, '?', '*', 'MON-FRI', '*'))
-@app.schedule(Cron(30, 18, '?', '*', 'MON-FRI', '*'))
 def stop_lambda_handler(event):
     print("Stopping cluster")
     try:
@@ -39,6 +38,11 @@ def stop_lambda_handler(event):
     print('Stopped your cluster: ' + str(response))
     # Sending notification to Microsoft Team
     send_notification_to_ms_teams("Stop cluster response {}".format(response))
+
+
+@app.schedule(Cron(30, 18, '?', '*', 'MON-FRI', '*'))
+def stop_neptune_at_12_pm_handler(event):
+    stop_lambda_handler(event)
 
 
 # Sending notification to Microsoft Team
