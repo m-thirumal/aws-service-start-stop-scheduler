@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "app_name": "aws-service-start-stop-scheduler",
+  "app_name": "start-stop-scheduler",
   "autogen_policy": false,
   "iam_policy_file": "policy.json",
   "stages": {

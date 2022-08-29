@@ -1,36 +1,52 @@
 {
   "resources": [
     {
-      "name": "start_lambda_handler_role",
+      "name": "start_lambda_role",
       "resource_type": "iam_role",
-      "role_arn": "arn:aws:iam::597991982472:role/aws-service-start-stop-scheduler-prod-start_lambda_handler",
-      "role_name": "aws-service-start-stop-scheduler-prod-start_lambda_handler"
+      "role_arn": "arn:aws:iam::597991982472:role/start-stop-scheduler-prod-start_lambda",
+      "role_name": "start-stop-scheduler-prod-start_lambda"
     },
     {
-      "name": "start_lambda_handler",
+      "name": "start_lambda",
       "resource_type": "lambda_function",
-      "lambda_arn": "arn:aws:lambda:ap-south-1:597991982472:function:aws-service-start-stop-scheduler-prod-start_lambda_handler"
+      "lambda_arn": "arn:aws:lambda:ap-south-1:597991982472:function:start-stop-scheduler-prod-start_lambda"
     },
     {
-      "name": "start_lambda_handler-event",
+      "name": "start_lambda-event",
       "resource_type": "cloudwatch_event",
-      "rule_name": "aws-service-start-stop-scheduler-prod-start_lambda_handler-event"
+      "rule_name": "start-stop-scheduler-prod-start_lambda-event"
     },
     {
-      "name": "stop_lambda_handler_role",
+      "name": "stop_lambda_role",
       "resource_type": "iam_role",
-      "role_arn": "arn:aws:iam::597991982472:role/aws-service-start-stop-scheduler-prod-stop_lambda_handler",
-      "role_name": "aws-service-start-stop-scheduler-prod-stop_lambda_handler"
+      "role_arn": "arn:aws:iam::597991982472:role/start-stop-scheduler-prod-stop_lambda",
+      "role_name": "start-stop-scheduler-prod-stop_lambda"
     },
     {
-      "name": "stop_lambda_handler",
+      "name": "stop_lambda",
       "resource_type": "lambda_function",
-      "lambda_arn": "arn:aws:lambda:ap-south-1:597991982472:function:aws-service-start-stop-scheduler-prod-stop_lambda_handler"
+      "lambda_arn": "arn:aws:lambda:ap-south-1:597991982472:function:start-stop-scheduler-prod-stop_lambda"
     },
     {
-      "name": "stop_lambda_handler-event",
+      "name": "stop_lambda-event",
       "resource_type": "cloudwatch_event",
-      "rule_name": "aws-service-start-stop-scheduler-prod-stop_lambda_handler-event"
+      "rule_name": "start-stop-scheduler-prod-stop_lambda-event"
+    },
+    {
+      "name": "stop_neptune_at_11_pm_role",
+      "resource_type": "iam_role",
+      "role_arn": "arn:aws:iam::597991982472:role/start-stop-scheduler-prod-stop_neptune_at_11_pm",
+      "role_name": "start-stop-scheduler-prod-stop_neptune_at_11_pm"
+    },
+    {
+      "name": "stop_neptune_at_11_pm",
+      "resource_type": "lambda_function",
+      "lambda_arn": "arn:aws:lambda:ap-south-1:597991982472:function:start-stop-scheduler-prod-stop_neptune_at_11_pm"
+    },
+    {
+      "name": "stop_neptune_at_11_pm-event",
+      "resource_type": "cloudwatch_event",
+      "rule_name": "start-stop-scheduler-prod-stop_neptune_at_11_pm-event"
     }
   ],
   "schema_version": "2.0",
