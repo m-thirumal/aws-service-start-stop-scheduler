@@ -9,8 +9,8 @@ rds = boto3.client('rds')
 
 
 # -----------------------START SERVICE-------------------------------#
-# Run at 03:00am(UTC) [i.e.08:30am (IST)] every Monday through Friday.
-@app.schedule(Cron(00, 3, '?', '*', 'MON-FRI', '*'))
+# Run at 03:15am(UTC) [i.e.08:45am (IST)] every Monday through Friday.
+@app.schedule(Cron(15, 3, '?', '*', 'MON-FRI', '*'))
 def start_lambda_handler(event):
     print("Starting cluster")
     try:
@@ -40,8 +40,8 @@ def stop_lambda_handler(event):
     send_notification_to_ms_teams("Stop cluster response {}".format(response))
 
 
-@app.schedule(Cron(30, 18, '?', '*', 'MON-FRI', '*'))
-def stop_neptune_at_12_pm_handler(event):
+@app.schedule(Cron(30, 17, '?', '*', 'MON-FRI', '*'))
+def stop_neptune_at_11_pm_handler(event):
     stop_lambda_handler(event)
 
 
