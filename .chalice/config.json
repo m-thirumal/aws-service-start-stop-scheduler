@@ -8,6 +8,7 @@
       "api_gateway_stage": "api",
       "environment_variables": {
         "region": "ap-south-1",
+        "ec2": "i-05ebcb5e012ae04a8,i-06f93acf586573e07",
         "DBClusterIdentifier": "development",
         "msTeamChannelIncomingWebhook": "https://enkindle.webhook.office.com/webhookb2/1bebddfc-a23d-4f4c-89b3-7380abb11c05@8f8998d2-4e65-4757-8e6e-be97a171a01d/IncomingWebhook/c6acaaa10f2a4ffc8a221a52ca45337b/54b0c17e-7e1d-4e85-9b20-de0cca21b654"
       }

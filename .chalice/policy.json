@@ -13,10 +13,10 @@
     {
       "Effect": "Allow",
       "Action": [
-        "rds:Start*",
-        "rds:Stop*"
+       "ec2:StartInstances",
+        "ec2:StopInstances"
       ],
-      "Resource": "*"
+      "Resource": "arn:aws:ec2:ap-south-1:*:instance/*"
     }
   ]
 }

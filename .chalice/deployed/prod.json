@@ -1,52 +1,36 @@
 {
   "resources": [
     {
-      "name": "start_lambda_role",
+      "name": "start_ec2_role",
       "resource_type": "iam_role",
-      "role_arn": "arn:aws:iam::597991982472:role/start-stop-scheduler-prod-start_lambda",
-      "role_name": "start-stop-scheduler-prod-start_lambda"
+      "role_arn": "arn:aws:iam::597991982472:role/start-stop-scheduler-prod-start_ec2",
+      "role_name": "start-stop-scheduler-prod-start_ec2"
     },
     {
-      "name": "start_lambda",
+      "name": "start_ec2",
       "resource_type": "lambda_function",
-      "lambda_arn": "arn:aws:lambda:ap-south-1:597991982472:function:start-stop-scheduler-prod-start_lambda"
+      "lambda_arn": "arn:aws:lambda:ap-south-1:597991982472:function:start-stop-scheduler-prod-start_ec2"
     },
     {
-      "name": "start_lambda-event",
+      "name": "start_ec2-event",
       "resource_type": "cloudwatch_event",
-      "rule_name": "start-stop-scheduler-prod-start_lambda-event"
+      "rule_name": "start-stop-scheduler-prod-start_ec2-event"
     },
     {
-      "name": "stop_lambda_role",
+      "name": "stop_ec2_role",
       "resource_type": "iam_role",
-      "role_arn": "arn:aws:iam::597991982472:role/start-stop-scheduler-prod-stop_lambda",
-      "role_name": "start-stop-scheduler-prod-stop_lambda"
+      "role_arn": "arn:aws:iam::597991982472:role/start-stop-scheduler-prod-stop_ec2",
+      "role_name": "start-stop-scheduler-prod-stop_ec2"
     },
     {
-      "name": "stop_lambda",
+      "name": "stop_ec2",
       "resource_type": "lambda_function",
-      "lambda_arn": "arn:aws:lambda:ap-south-1:597991982472:function:start-stop-scheduler-prod-stop_lambda"
+      "lambda_arn": "arn:aws:lambda:ap-south-1:597991982472:function:start-stop-scheduler-prod-stop_ec2"
     },
     {
-      "name": "stop_lambda-event",
+      "name": "stop_ec2-event",
       "resource_type": "cloudwatch_event",
-      "rule_name": "start-stop-scheduler-prod-stop_lambda-event"
-    },
-    {
-      "name": "stop_neptune_at_11_pm_role",
-      "resource_type": "iam_role",
-      "role_arn": "arn:aws:iam::597991982472:role/start-stop-scheduler-prod-stop_neptune_at_11_pm",
-      "role_name": "start-stop-scheduler-prod-stop_neptune_at_11_pm"
-    },
-    {
-      "name": "stop_neptune_at_11_pm",
-      "resource_type": "lambda_function",
-      "lambda_arn": "arn:aws:lambda:ap-south-1:597991982472:function:start-stop-scheduler-prod-stop_neptune_at_11_pm"
-    },
-    {
-      "name": "stop_neptune_at_11_pm-event",
-      "resource_type": "cloudwatch_event",
-      "rule_name": "start-stop-scheduler-prod-stop_neptune_at_11_pm-event"
+      "rule_name": "start-stop-scheduler-prod-stop_ec2-event"
     }
   ],
   "schema_version": "2.0",
