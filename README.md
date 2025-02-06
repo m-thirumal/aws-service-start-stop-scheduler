@@ -1,52 +1,45 @@
-= Start / Stop AWS services by scheduler
+# Start / Stop AWS services by scheduler
 
 This lambda helps to start / stop AWS services such as AWS Neptune... by `CRON` scheduler 
 
+## Building the project
 
-== Building the project
 
-
-== Set Up
+## Set Up
 
 * Create Virtual environment
 
-[source,shell]
-----
+```bash
 python3 -m venv venv37
-----
+```
 
 * Activate the vitual environment::
 
-[source,shell]
-----
+```bash
 . venv37/bin/activate
-----
+```
 
 * Go to project directory::
 
-[source,shell]
-----
+```bash
 cd {PATH}/aws-service-start-stop-scheduler/
-----
+```
 	
 * Install Chalice::
 
-[source,shell]
-----
+```bash
 python3 -m pip install chalice
-----
+```
 
 * Install requirements:
 
-[source,shell]
-----
+```bash
 pip install -r requirements.txt
-----
+```
 
-== Sample Input
+## Sample Input
 
-[source,json]
-----
+```bash
 {
   "id": "cdc73f9d-aea9-11e3-9d5a-835b769c0d9c",
   "detail-type": "Scheduled Event",
@@ -60,37 +53,34 @@ pip install -r requirements.txt
   "detail": {},
   "version": ""
 }
-----
+```
 
-== Run
+## Run
 
 * To Run local::
 
-[source,shell]
-----
+```bash
 chalice local
-----
+```
  
 * To Run test::
 
-[source,shell]
-----
+```bash
 py.test tests/
 
 pytest --log-cli-level=DEBUG
-----
+```
 
  
-== Deploy
+## Deploy
 
-[source,shell]
-----
+```bash
 chalice deploy --stage prod
-----
+```
 
-== Microsoft Teams
+## Microsoft Teams
 
-==== Create Webhook Incoming channel
+#### Create Webhook Incoming channel
 
 Add an incoming webhook to a Teams channel:
 
